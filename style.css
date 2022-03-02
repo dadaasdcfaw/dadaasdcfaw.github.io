@@ -1,0 +1,28 @@
+#container {
+    border: 1px solid red;
+    width: 100%;
+}
+
+#main {
+    background-color: #f0f;
+    margin-left: -240px;
+    width: 100%;
+    float: left;
+}
+
+#main .inside {
+    margin-left: 240px;
+}
+
+#left {
+     background-color: #0ff;
+}
+
+#right {
+     background-color: #ff0;
+}
+
+#left,#right {
+    float: left;
+    width:240px;
+}
