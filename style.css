@@ -1,28 +1,35 @@
-#container {
-    border: 1px solid red;
-    width: 100%;
+*{
+  text-align: center;
+  margin: 0 auto;
+  background-image: linear-gradient(#666, #444);
 }
 
-#main {
-    background-color: #f0f;
-    margin-left: -240px;
-    width: 100%;
-    float: left;
+body{
+    background-image: linear-gradient(#666, #444);
 }
 
-#main .inside {
-    margin-left: 240px;
+#botonesTop{
+  font-size:0px;
+  display: flex;
+  justify-content:space-between;
+  width: 50%;
+  vertical-align: middle;
 }
 
-#left {
-     background-color: #0ff;
+#presentacion{
+  height: 500px;
+  width: 75%;
+  margin-top: 5%;
+  text-align: left;
+  display: flex;
+
 }
 
-#right {
-     background-color: #ff0;
+p{
+  text-align: left;
+  font-family: Arial
 }
 
-#left,#right {
-    float: left;
-    width:240px;
+#foto{
+  margin:0
 }
