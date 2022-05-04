@@ -2,40 +2,109 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <title>Página 1</title>
     </head>
     <body id="formacion">
-        <a href="index.html">
-            <button><img src="images/001.gif" alt="miss img"></button>
-        </a>    
-        <div id="acad">
-            <h1>Formación académica</h1>
-            <ul>
-                <li>Grado en Ingeniería Automática y Electrónica por la Universidad de Vigo
-                    <p>&emsp;Programación y diseño de FPGAs y microcontroladores como Arduino o PIC de Microchip.</p>
-                    <p>&emsp;Nociones básicas de C, C++, Matlab y desarrollo Android.</p>
-                </li>
-            </ul>
+
+        <a href="index.html" class="bt_back">
+            <button ><img src="images/001.gif" alt="miss img"></button>
+        </a>
+
+        <div class="tituloPag">
+            <div class="tarjetas_experiencia">
+                <h1>Formación académica</h1>
+                <ul>
+                    <li class="rowImg_txt">
+                        <div class="img_cont">
+                            <img src="images\uvigo.png" alt="boticon">
+                        </div>
+                        <p>Grado en Ingeniería Automática y Electrónica por la Universidad de Vigo</p>
+                        <br>
+                        <p>&emsp;Programación y diseño de FPGAs y microcontroladores como Arduino o PIC de Microchip.</p>
+                        <p>&emsp;Nociones básicas de C, C++, Matlab y desarrollo Android.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="tarjetas_experiencia">
+                <h1>Formación adicional</h1>
+                <ul>
+                    <li class="rowImg_txt">
+                        <div class="img_cont">
+                            <img src="images\python.png" alt="boticon">
+                        </div>
+                        <p>Python</p>
+                        <br>
+                        <p>&emsp;Numpy, pandas, open3D, TKinter, matplotlib, PIL y programación multi-hilo son las herramientas que más destacan.</p>
+                    </li>
+                    <li class="rowImg_txt">
+                        <div class="img_cont">
+                            <img src="images\weblogo.png" alt="boticon">
+                        </div>
+                        <p>HTML / CSS / Javascript / PHP</p>
+                        <br>
+                    </li>
+                    <li class="rowImg_txt">
+                        <div class="img_cont">
+                            <img src="images\c.png" alt="boticon">
+                        </div>
+                        <p>C#</p>
+                        <br>
+                    </li>
+                    <li class="rowImg_txt">
+                        <div class="img_cont">
+                            <img src="images\sql-logo.png" alt="boticon">
+                        </div>
+                        <p>Bases de datos SQL</p>
+                    </li>
+        
+                    <p>Nuevos lenguajes o conceptos son aplicados en diferentes
+                        <a href="pag2.html">proyectos.</a>
+                    </p>
+                    
+                    
+                </ul>
+            </div>
         </div>
-        <div id="adic">
-            <h1>Formación adicional</h1>
-            <ul>
-                <li>Python
-                    <p>&emsp;Numpy, pandas, open3D, TKinter, matplotlib, PIL y programación multi-hilo son las herramientas que más destacan.</p>
-                </li>
-                <li>HTML / CSS / PHP</li>
-                <br>
-                <li>Unity / C#</li>
-                <br>
-                <li>Bases de datos SQL</li>
-                <br>
-                <p>Nuevos lenguajes o conceptos son aplicados en diferentes
-                    <a href="pag2.html">proyectos.</a>
-                </p>
-                
-                
-            </ul>
-        </div>
+        
+        <footer>
+            <table>
+                <tr>
+                    <th>Jose Barros Ribademar</th>
+                    <th>Contacto</th>
+                    <th>Social</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Ingeniero de validación</p>
+                    </td>
+                    <td>
+                        <p>josebarrosribademar@gmail.com</p>
+                    </td>
+                    <td>
+                        <div class="icono_texto">
+                            <a href="https://www.linkedin.com/in/jose-barros-ribademar">
+                                <div class="img_cont">
+                                    <img src="images\linkedin.png" alt="linkedinlogo">
+                                </div>
+                                <p>LinkedIn</p>
+                            </a>
+                        </div>
+                        <div class="icono_texto">
+                            <a href="https://github.com/dadaasdcfaw">
+                                <div class="img_cont">
+                                    <img src="images\github.png" alt="githublogo">
+                                </div>
+                                <p>GitHub</p>
+                            </a>
+                        </div>
+                        
+                    </td>
+                </tr>
+            </table>
+        </footer>
 
     </body>
 </html>

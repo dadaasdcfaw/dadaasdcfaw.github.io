@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="spaceInvaders.css">
+        <script src="spaceInvaders.js"></script> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat:wght@500&display=swap" rel="stylesheet"> 
+        <title>Mi webbb</title>
+    </head>
+    <body>
+        <a href="pag3.html" class="bt_back">
+            <button><img src="images\001.gif" alt="miss img"></button>
+        </a>
+        <div class="div_pantalla">
+            <div class="panel" id="panel_start">
+                <div class="panel_container">
+                    <button id="BT_start">
+                        start
+                    </button>
+                    <button id="BT_instrucciones">
+                        instrucciones
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel" id="panel_instrucciones">
+                <div class="panel_container">
+                    <p>Consiste en darle al triángulo de arriba todas las veces que puedas. Tienes 10s.
+                    <br><br>
+                    W--> izq<br>D-->der<br>Espacio-->Disparar</p>
+                    <button id="BT_menuback">
+                        volver
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel" id="panel_fin">
+                <div class="panel_container">
+                    <p>FIN<br>Pulsa R para reiniciar</p>
+                    <button id="BT_restart">
+                        menu ppal
+                    </button>
+                </div>
+            </div>
+
+            <canvas id="pantalla" width="1500" height="750">
+            </canvas>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+a{text-decoration: none;}
+p{
+  font-family: 'Montserrat', sans-serif;
+  font-size: large; 
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bree Serif', serif;
+}
+body{
+    background-image: url(images/wallpaper.jpg);
+    background-repeat: repeat;
+    margin: 0 auto;
+}
+
+.bt_back{
+  display: block;
+  text-align: center;
+}
+.bt_back button{
+  background: transparent;
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0.5) 100%);
+  border-radius: 10px;
+  width: 150px;
+  height: 100px;
+}
+
+.div_pantalla{
+  position: relative;
+  width: 1500px;
+  height: 750px;
+  display: flex;
+  margin: 0 auto;
+  background-image:radial-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.5));
+  margin-top: 30px;
+  pad: 10px;
+}
+#pantalla{
+  flex-grow: 1;
+  background: #777;
+  margin: 15px;
+}
+
+.panel{
+  flex-grow: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: #4284f4;
+
+  
+  display: table-cell;
+  margin: 0 auto;
+
+}
+
+.panel_container{
+  background: #36a24c;
+  height: 30%;
+  width: 30%;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center
+}
+
+.panel_container button{
+  height: 3em;
+  width: 15em;
+}
+
+.panel_container p{
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
