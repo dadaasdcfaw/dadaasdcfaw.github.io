@@ -18,11 +18,20 @@ document.addEventListener("DOMContentLoaded", function() {
     var width = c.width;
     var height = c.height;
     
+
+
+
     if (localStorage.mejorPuntuacion == undefined){
         localStorage.setItem("mejorPuntuacion",0) 
     }
     var ctx = c.getContext("2d")
+
     var gameIsRunning = false;
+
+    var gradient = ctx.createLinearGradient(0, 0, 170, 0);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5" ,"blue");
+    gradient.addColorStop("1.0", "red");
 
     ocultarPaneles()
     menu.style.zIndex=1
@@ -117,10 +126,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var disparo = {
         x:100,
         y:height,
-        vel:30,
-        ancho:10,
+        vel:25,
+        ancho:6,
         alto:15,
-        color:"red",
+        color:"black",
 
         calcPos(){
             //mover las balas mientras esten dentro de la pantalla
@@ -149,15 +158,31 @@ document.addEventListener("DOMContentLoaded", function() {
         
         ctx.clearRect(0, 0, c.width, c.height);
         
-        ctx.lineWidth = "6";
-        ctx.strokeStyle = "red";
-        
+        ctx.shadowColor = 'red';
+        ctx.shadowBlur = 5;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+
         //main char
-        ctx.beginPath();
-        ctx.rect(nave.x, nave.y, 50, 50);
-        ctx.stroke();
+        var grd = ctx.createLinearGradient(0,0,width,height)
+        grd.addColorStop(0, "#000");
+        grd.addColorStop(1, "#222");
+        ctx.fillStyle = grd
+        ctx.fillRect(0, 0, width, height);
+        ctx.lineWidth = 5
+        ctx.strokeStyle = "#FEE"
+        ctx.strokeRect(nave.x, nave.y, 50, 50);
+
+        //ctx.stroke();
 
         //enemy
+        ctx.lineWidth = 5
+        ctx.strokeStyle = "#EFE"
+        ctx.shadowColor = 'green';
+        ctx.shadowBlur = 5;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+
         ctx.beginPath();
         ctx.moveTo(enemigo.x, enemigo.y);
         ctx.lineTo(enemigo.x + enemigo.ancho, enemigo.y);
@@ -168,14 +193,53 @@ document.addEventListener("DOMContentLoaded", function() {
 
         //balas
         for (bala of balas){
-            ctx.beginPath();
-            ctx.strokeStyle=bala.color
-            ctx.rect(bala.x, bala.y, bala.ancho, bala.alto);
-            ctx.stroke();
+
+            ctx.lineWidth = 3
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.strokeStyle='red'
+
+            //createRadialGradient(x0, y0, r0, x1, y1, r1)
+            //x0, y0, r0 --> coord & radio circulo 1
+            //x1, y1, r1 --> coord & radio circulo 2
+            let grad = ctx.createRadialGradient(
+                bala.x - bala.ancho/2,
+                bala.y - bala.alto/2,
+                300,
+                bala.x - bala.ancho/2,
+                bala.y - bala.alto/2,
+                0);     
+            grad.addColorStop(0,"transparent");
+            grad.addColorStop(0.33,"rgba(0,0,0,1)");	// extra point to control "fall-off"
+            grad.addColorStop(1,"red");
+
+                                    
+            ctx.fillStyle = grad;
+            ctx.filter = "blur(5px)";
+            let grosor_brillo_x = 2 * bala.ancho
+            let grosor_brillo_y = 1.2 * bala.alto
+            let posX = bala.x + bala.ancho/2 - grosor_brillo_x/2
+            let posY = bala.y + bala.alto/2 - grosor_brillo_y/2
+            ctx.fillRect(
+                posX,
+                posY,
+                grosor_brillo_x,
+                grosor_brillo_y);
+
+            ctx.filter = "none"
+            ctx.fillStyle = "white"
+            ctx.fillRect(bala.x, bala.y, bala.ancho, bala.alto);
+           
         }
 
         //puntuacion
+
+
+
         ctx.font = "30px Arial";
+        ctx.fillStyle = "#fee"
         ctx.fillText(`Disparos: ${disparos}`, 25, 50); 
         ctx.fillText(`Impactos: ${impactos}`, 25, 100);
         ctx.fillText(`Precisión: ${precision} %`, 25, 150);

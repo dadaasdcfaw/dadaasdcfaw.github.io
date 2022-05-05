@@ -34,9 +34,10 @@ body{
   margin-top: 30px;
   pad: 10px;
 }
+
 #pantalla{
   flex-grow: 1;
-  background: #777;
+  background: #fff;
   margin: 15px;
 }
 
