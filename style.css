@@ -1,5 +1,24 @@
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
+html,body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
 
 /*GLOBALES*/
 a{
@@ -19,7 +38,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 150px;
   height: 100px;
 }
-
+.bt_back{
+  text-align: center;
+}
 ul{
   text-align: left;
   /*background-image: radial-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.3));
@@ -30,14 +51,16 @@ ul{
 }
 /** FOOTER **/
 footer {
+  grid-area: footer;
+  
   background-image: linear-gradient(to top, rgba(255,255,255,0.7), rgba(255,255,255,0.85), rgba(255,255,255,0.7));
   width:100%;
   height:100px;
-  justify-content: center;
   border-radius: 40px 40px 0px 0px;
   padding-top: 15px;
   margin-top: auto;
-  }
+  margin: 0 auto;
+}
 
 footer table{
   table-layout: fixed;
@@ -89,33 +112,40 @@ body{
 
 /************* PÁGINA PPAL *************/
 #ppal{
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  height: 100%;
-  margin-bottom: 100px;
 }
 
 /* DIV TOP */
 #div_botonesTop{
-
+  grid-area: header;
   font-size:0px;
-  width: 50%;
+  width: 100%;
   display: flex;
-  padding-left: 25%;
-  padding-right: 25%;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 #div_botonesTop button{
+  
   background: transparent;
   background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0.5) 100%);
   border-radius: 10px;
   width: 150px;
   height: 100px;
-  margin:0 auto;
+  
   display: block;
-  justify-content: flex-end;
+  
   padding-top: 5px;
   padding-bottom: 5px;
+  
+}
+#div_botonesTop a{
+  justify-content: flex-end;
+  margin: 0 70px;
 }
 #div_botonesTop button p{
   font-size: medium;
@@ -333,9 +363,66 @@ body{
   background-repeat: repeat;
 }
 
-/********** INTERES **************/
 
-.chikito{
-  position: absolute;
-  bottom: 0;
+/******* BOT PRO ******/
+.bloqueTexto{
+  width: 90%;
+  margin: 20px auto;
+  background-image:radial-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.5));
+  border-radius: 10px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  -ms-backdrop-filter: blur(10px);
+  
+  padding: 10px 30px;
+  
+  text-align: justify;
+  text-justify: inter-word;
 }
+
+.bloqueTexto:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.bloqueTexto h1{
+  margin: 10px;
+  text-align: center;
+}
+.bloqueTexto h3{
+  margin-bottom: .5rem;
+}
+.bloqueTexto h3:not(h1+h3){
+  margin-top: 1.5rem;
+}
+#disclaimer{
+  width: 50%;
+  margin: inherit auto;
+  display: block;
+  color: red;
+  text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, .5px .5px #fff, -.5px -.5px 0 #fff, .5px -.5px 0 #fff, -1px 1px 0 #fff;
+}
+.containerVid{
+  display: flex;
+  margin: 0 auto;
+  width: 70%;
+}
+.containerVid video, .containerVid img{
+  max-width: 50%;
+  
+  clear:left;
+  float: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.containerVid p{
+  width: 50%;
+  height: auto;
+  margin-top: 1rem;
+  padding: 0 1rem 1rem 1rem;
+}
+

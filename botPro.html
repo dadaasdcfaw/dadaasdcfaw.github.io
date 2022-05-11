@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <title>Bot Pro</title>
+    </head>
+    <body id="botPro">        
+        <a href="index.html" class="bt_back">
+            <button><img src="images/001.gif" alt="miss img"></button>
+        </a>  
+
+        <div id="main">
+            <div class="bloqueTexto" id="disclaimer">
+                <p>
+                    <b>Disclaimer: </b>Al tratarse de un videojuego en línea,
+                    herramientas como esta tienen efectos muy negativos en la salud del mismo.
+                    El bot no se encuentra disponible para descarga, ni ahora ni nunca.
+                    En su momento, se desarrolló con fines meramente didácticos.
+                </p>
+            </div>
+
+            <div class="bloqueTexto" id="contexto">
+                <h1>Contexto</h1>
+                <h3>General</h3>
+                <p>
+                    Los videojuegos de Pokémon están basados en unas criaturas que utilizan los jugadores para combatir.
+                    Estas criaturas llamadas Pokémon son capturadas y posteriormente entrenadas.
+                    Los Pokémon salvajes aparecen cuando el jugador se mueve por unas zonas determinadas.
+                    <br><br>
+                </p>
+                <div class="containerVid">
+                    <video controls>
+                        <source src="images/pokemon/combate1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                    <p>
+                        Cuando un Pokémon aparece, comienza una batalla.
+                        La batalla concluye cuando el jugador huye o el Pokémon enemigo es derrotado o capturado.
+                        <br>
+                        <br>
+                        Las especies de Pokémon más fuertes aparecen con menos frecuencia, representando el 0.1% de los encuentros en algunos casos.
+                    </p>
+                </div>
+
+                <h3>Pokémon salvajes</h3>
+                <p>
+                    Los Pokémon cuentan con numerosos atributos que diferencian a los individuous de la misma especie. Estos atributos hacen que sean mejores
+                    o peores para según que rol dentro del equipo. Los atributos de los Pokémon salvajes se deciden al azar cuando estos aparecen, aunque no
+                    se pueden conocer hasta que son capturados. La habilidad de un Pokémon salvaje es el único atributo que sí se puede conocer antes de que
+                    sea capturado.
+                </p>   
+                <br>                
+                <p>
+                    
+                </p>
+            </div>
+
+            <div class="bloqueTexto">
+                <h1>Funcionamiento</h1>
+                <p>
+                    En líneas generales, el bot introduce entradas de teclado en el juego como si de una persona se tratase.
+                    El jugador debe estar colocado en una zona donde aparezcan Pokémon salvajes.
+                    <br><br>
+                    El bot moverá el personaje hasta que tenga lugar un encuentro. Cuando sucede, se detecta que una batalla ha comenzado. Mediante OCR
+                    (Optical Character Recognition), la especie de Pokémon salvaje es identificada. Si se ha especificado capturar esa especie, se inicia
+                    la rutina de captura; si no, el bot finaliza el encuentro huyendo. En cualquier caso, se vuelve a andar hasta encontrar otro Pokémon
+                    salvaje. Además de la especie y con la configuración adecuada, el bot es capaz de identificar la habilidad del Pokémon salvaje.
+                    <br><br>
+                </p>
+                <div class="containerVid">
+                    <img src="images/pokemon/gui.png" alt="gui">
+                    <p>
+                        Cuando un Pokémon aparece, comienza una batalla.
+                        La batalla concluye cuando el jugador huye o el Pokémon enemigo es derrotado o capturado.
+                        <br>
+                        <br>
+                        Las especies de Pokémon más fuertes aparecen con menos frecuencia, representando el 0.1% de los encuentros en algunos casos.
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+        <footer class="chikito">
+            <table>
+                <tr>
+                    <th>Jose Barros Ribademar</th>
+                    <th>Contacto</th>
+                    <th>Social</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Ingeniero de validación</p>
+                    </td>
+                    <td>
+                        <p>josebarrosribademar@gmail.com</p>
+                    </td>
+                    <td>
+                        <div class="icono_texto">
+                            <a href="https://www.linkedin.com/in/jose-barros-ribademar">
+                                <div class="img_cont">
+                                    <img src="images\linkedin.png" alt="linkedinlogo">
+                                </div>
+                                <p>LinkedIn</p>
+                            </a>
+                        </div>
+                        <div class="icono_texto">
+                            <a href="https://github.com/dadaasdcfaw">
+                                <div class="img_cont">
+                                    <img src="images\github.png" alt="githublogo">
+                                </div>
+                                <p>GitHub</p>
+                            </a>
+                        </div>
+                        
+                    </td>
+                </tr>
+            </table>
+        </footer>
+
+    </body>
+</html>

@@ -5,7 +5,9 @@
         <script src="spaceInvaders.js"></script> 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href='https://fonts.googleapis.com/css?family=Sacramento:400' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat:wght@500&display=swap" rel="stylesheet"> 
+        
         <title>Mi webbb</title>
     </head>
     <body>
@@ -14,34 +16,43 @@
         </a>
         <div class="div_pantalla">
             <div class="panel" id="panel_start">
-                <div class="panel_container">
-                    <button id="BT_start">
-                        start
+                <div class="logo">
+                    <span>J</span>I<span>A</span>Y
+                </div>
+                <div id="botonesStart">
+                    <button id="BT_start" class="neonText">
+                        Start
                     </button>
-                    <button id="BT_instrucciones">
-                        instrucciones
+                    <button id="BT_instrucciones" class="neonText">
+                        Instrucciones
                     </button>
                 </div>
             </div>
 
             <div class="panel" id="panel_instrucciones">
-                <div class="panel_container">
+                <div id="instrucciones">
                     <p>Consiste en darle al triángulo de arriba todas las veces que puedas. Tienes 10s.
-                    <br><br>
-                    A--> izq<br>D-->der<br>Espacio-->Disparar</p>
-                    <button id="BT_menuback">
-                        volver
-                    </button>
+                        <br><br>
+                        <span>
+                            A &#10142; Moverse a la izquierda<br>
+                            D &#10142; Moverse a la derecha<br>
+                            Espacio &#10142; Disparar
+                        </span>
+                    </p>
                 </div>
+
+                <button id="BT_menuback" class="neonText">
+                    Volver
+                </button>
             </div>
 
             <div class="panel" id="panel_fin">
-                <div class="panel_container">
+                <div id="div_texto_muerte">
                     <p>FIN<br>Pulsa R para reiniciar</p>
-                    <button id="BT_restart">
-                        menu ppal
-                    </button>
                 </div>
+                <button id="BT_restart" class="neonText">
+                    Inicio
+                </button>
             </div>
 
             <canvas id="pantalla" width="1500" height="750">

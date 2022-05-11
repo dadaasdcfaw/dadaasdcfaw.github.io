@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var width = c.width;
     var height = c.height;
     
-
-
+    var  fpsInterval, now, then, elapsed;
+    var endGame = new Timer(function(){}, 0)
 
     if (localStorage.mejorPuntuacion == undefined){
         localStorage.setItem("mejorPuntuacion",0) 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     ocultarPaneles()
     menu.style.zIndex=1
-    menu.style.opacity=.8
+    menu.style.opacity=1
 
 
     var keyState = {
@@ -153,7 +153,9 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         
     }
+
     dibujar()
+
     function dibujar(){
         
         ctx.clearRect(0, 0, c.width, c.height);
@@ -235,11 +237,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         //puntuacion
+        ctx.lineWidth = 5
 
+        ctx.strokeStyle = "#EEF"
 
+        ctx.shadowColor = "orange";
+        ctx.shadowBlur = 5;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
 
-        ctx.font = "30px Arial";
-        ctx.fillStyle = "#fee"
+        ctx.font = "30px Montserrat";
+        ctx.fillStyle = "#eee"
         ctx.fillText(`Disparos: ${disparos}`, 25, 50); 
         ctx.fillText(`Impactos: ${impactos}`, 25, 100);
         ctx.fillText(`Precisión: ${precision} %`, 25, 150);
@@ -247,24 +255,47 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.setItem("mejorPuntuacion", impactos)
         }
         ctx.fillText(`Récord de impactos: ${localStorage.mejorPuntuacion}`, 25, 225)
+        tiempoRestante = (endGame.getTimeLeft()>0)? endGame.getTimeLeft()/1000:0
+        tiempoRestante = (Math.round(tiempoRestante * 10) / 10).toFixed(1)
+        console.log(tiempoRestante)
+
+        ctx.font = "35px Montserrat";
+        ctx.fillText("Tiempo:", width-200, 70)
+        ctx.font = "80px NeonCaps";
+        ctx.fillText(`${tiempoRestante}`, width-175, 150)
     }
 
     function frameFuncs(){
-        if (gameIsRunning){
+        
+        if (!gameIsRunning){return}
+
+        // request another frame
+        requestAnimationFrame(frameFuncs);
+
+        // calc elapsed time since last loop
+        now = Date.now();
+        elapsed = now - then;
+
+        if (keyState.down.KeyR){
+
+            endGame.pause()
+            endGame = new Timer(acabarJuego, 10000)
+
+            reset()
+        }
+        // if enough time has elapsed, draw the next frame
+        if (elapsed > fpsInterval) {
+
+            // Get ready for next frame by setting then=now, but...
+            // Also, adjust for fpsInterval not being multiple of 16.67
+            then = now - (elapsed % fpsInterval);
+    
+            // draw stuff here
             nave.calcPos()
             disparo.calcPos()
             enemigo.calcPos()
             calcColision()
             dibujar();
-
-            if (keyState.down.Escape){
-                
-                gameIsRunning=false
-                clearInterval(to)
-                clearTimeout(endGame)
-                back2Menu()
-                reset()
-            }
         }
     }
 
@@ -306,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if(e.type === "keyup"){
             keyState.toggle[e.code] = !keyState.toggle[e.code];
         }
-        console.log(e.code)
+        //console.log(e.code)
 
     }
 
@@ -317,23 +348,33 @@ document.addEventListener("DOMContentLoaded", function() {
         ocultarPaneles()
         gameIsRunning = true
         
-        to = setInterval(frameFuncs,5)
-        endGame = setTimeout(acabarJuego, 10000)
-        bt_start.removeEventListener("click",startGame)
+        endGame = new Timer(acabarJuego, 10000)
+        //bt_start.removeEventListener("click",startGame)
+        startAnimating(60);
+    }
+
+    function startAnimating(fps) {
+        fpsInterval = 1000 / fps;
+        then = Date.now();
+        startTime = then;
+        frameFuncs();
     }
 
     function showInstr(e){
         ocultarPaneles()
         instr.style.zIndex = 1
-        instr.style.opacity = 0.8
+        instr.style.opacity = 1
+
+        let fondoInstruc = ctx.getElementById("fondoInstrucciones")
+        
     }
 
     function back2Menu(e){
         ocultarPaneles()
         menu.style.zIndex = 1
-        menu.style.opacity = .8
+        menu.style.opacity = 1
         
-        bt_start.addEventListener("click",startGame)
+        //bt_start.addEventListener("click",startGame)
     }
 
     function reset(){
@@ -350,14 +391,14 @@ document.addEventListener("DOMContentLoaded", function() {
     function acabarJuego(){
         
         gameIsRunning=false
-        clearTimeout(endGame)
-        clearInterval(to)
+        endGame.pause()
+        //clearInterval(to)
         reset()
         back2Menu()
 
         ocultarPaneles()
         fin.style.zIndex=1
-        fin.style.opacity=0.8
+        fin.style.opacity=1
         check_restart = setInterval(function(){
             if (keyState.down.KeyR){
                 clearInterval(check_restart)
@@ -381,6 +422,40 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+class Timer {
+    constructor(callback, delay) {
+        var id, started, remaining = delay, running;
+
+        this.start = function () {
+            running = true;
+            started = new Date();
+            id = setTimeout(callback, remaining);
+        };
+
+        this.pause = function () {
+            running = false;
+            clearTimeout(id);
+            remaining -= new Date() - started;
+        };
+
+        this.getTimeLeft = function () {
+            if (running) {
+                this.pause();
+                this.start();
+            }
+
+            return remaining;
+        };
+
+        this.getStateRunning = function () {
+            return running;
+        };
+
+        this.start();
+    }
+}
+
 
 
 
