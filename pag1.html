@@ -10,59 +10,125 @@
     <body id="formacion">
 
         <a href="index.html" class="bt_back">
-            <button ><img src="images/001.gif" alt="miss img"></button>
+            <button >
+                <img src="images/001.gif" alt="miss img">
+                <p class="textoBT_top">Volver</p>
+            </button>
+            
         </a>
 
         <div class="tituloPag">
             <div class="tarjetas_experiencia">
                 <h1>Formación académica</h1>
                 <ul>
-                    <li class="rowImg_txt">
-                        <div class="img_cont">
-                            <img src="images\uvigo.png" alt="boticon">
+                    <li class="rowImg_txt" id="carrera_row">
+                        <div class="header_tarjeta" id="header_uvigo">
+                            <div class="img_cont">
+                                <img src="images\uvigo.png" alt="boticon">
+                            </div>
+                            <p class="title">Grado en Ingeniería Automática y Electrónica por la Universidad de Vigo</p>
+
                         </div>
-                        <p>Grado en Ingeniería Automática y Electrónica por la Universidad de Vigo</p>
                         <br>
-                        <p>&emsp;Programación y diseño de FPGAs y microcontroladores como Arduino o PIC de Microchip.</p>
-                        <p>&emsp;Nociones básicas de C, C++, Matlab y desarrollo Android.</p>
+                        <ul id="extraInfoCarerra" class="extraInfo">
+                            <li>
+                                <p class="li_desp">Programación y diseño de FPGAs y microcontroladores como Arduino o PIC de Microchip.</p>
+                            </li>
+                            <li>
+                                <p class="li_desp">Nociones básicas de C, C++, Matlab y desarrollo Android.</p>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
             <div class="tarjetas_experiencia">
                 <h1>Formación adicional</h1>
                 <ul>
-                    <li class="rowImg_txt">
-                        <div class="img_cont">
-                            <img src="images\python.png" alt="boticon">
+                    <li class="rowImg_txt" id="python_row">
+                        <div class="header_tarjeta" id="header_python">
+                            <div class="img_cont">
+                                <img src="images\python.png" alt="boticon">
+                            </div>
+                            <p class="title">
+                                Python
+                            </p>
+
                         </div>
-                        <p>Python</p>
                         <br>
-                        <p>&emsp;Numpy, pandas, open3D, TKinter, matplotlib, PIL y programación multi-hilo son las herramientas que más destacan.</p>
+                        <ul id="extraInfoPython" class="extraInfo">
+                            <li>
+                                <p class="li_desp">Pandas</p>
+                            </li>
+                            <li>
+                                <p class="li_desp">Open3D</p>
+                            </li>
+                            <li>
+                                <p class="li_desp">TKinter</p>
+                            </li>
+                            <li>
+                                <p class="li_desp">Matplotlib</p>
+                            </li>
+                            <li>
+                                <p class="li_desp">Pillow</p>
+                            </li>
+                            <li>
+                                <p class="li_desp">Programación multi-hilo</p>
+                            </li>
+                            <li>
+                                <p class="li_desp">OpenCV</p>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="rowImg_txt">
-                        <div class="img_cont">
-                            <img src="images\weblogo.png" alt="boticon">
+                    
+                    <li class="rowImg_txt" id="html_row">
+                        <div class="header_tarjeta" id="header_html">
+                            <div class="img_cont">
+                                <img src="images\weblogo.png" alt="boticon">
+                            </div>
+                            <p>HTML / CSS / Javascript / PHP</p>
                         </div>
-                        <p>HTML / CSS / Javascript / PHP</p>
                         <br>
+                        <ul class="extraInfo" id="extraInfoHtml">
+                            <li>
+                                <p>
+                                    Estos lenguajes, salvo PHP, fueron utilizados durante el desarrollo de esta web.
+                                </p>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="rowImg_txt">
-                        <div class="img_cont">
-                            <img src="images\c.png" alt="boticon">
+                    <li class="rowImg_txt" id="c_row">
+                        <div class="header_tarjeta" id="header_c">
+                            <div class="img_cont">
+                                <img src="images\c.png" alt="boticon">
+                            </div>
+                            <p>C#</p>
                         </div>
-                        <p>C#</p>
                         <br>
+                        <ul class="extraInfo" id="extraInfoC">
+                            <li>
+                                <p>
+                                    2 meses de experiencia autónoma en el entorno de desarrollo Unity.
+                                </p>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="rowImg_txt">
-                        <div class="img_cont">
-                            <img src="images\sql-logo.png" alt="boticon">
+                    <li class="rowImg_txt" id="sql_row">
+                        <div class="header_tarjeta" id="header_sql">
+                            <div class="img_cont">
+                                <img src="images\sql-logo.png" alt="boticon">
+                            </div>
+                            <p>Bases de datos SQL</p>
                         </div>
-                        <p>Bases de datos SQL</p>
+                        <br>
+                        <ul class="extraInfo" id="extraInfoSql">
+                            <li>
+                                <p>
+                                    Nociones básicas adquiridas durante el desarrollo de un bot para un videojuego.
+                                    Véase <a href="pag2.html" style="text-decoration: underline; color:blue;">proyectos</a>.
+                                </p>
+                            </li>
+                        </ul>
                     </li>
-        
-                    <p>Nuevos lenguajes o conceptos son aplicados en diferentes
-                        <a href="pag2.html">proyectos.</a>
-                    </p>
                     
                     
                 </ul>

@@ -3,6 +3,18 @@
   src: url("fonts\\Neon_Caps.ttf")
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,body {
+  width: 100%;
+  height: 100%;
+}
+
+
 a{text-decoration: none;}
 p{
   font-family: 'Montserrat', sans-serif;
@@ -15,28 +27,98 @@ body{
     background-image: url(images/wallpaper.jpg);
     background-repeat: repeat;
     margin: 0 auto;
+
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
 }
 
-.bt_back{
-  display: block;
-  text-align: center;
-}
 .bt_back button{
   background: transparent;
   background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0.5) 100%);
   border-radius: 10px;
   width: 150px;
   height: 100px;
+  
+}
+.bt_back{
+  width: fit-content;
+  height: fit-content;
+  padding: 25px;
+  margin: 0 auto;
+  grid-area: header;
 }
 
+footer{
+  grid-area: footer;
+  background-image: linear-gradient(to top, rgba(255,255,255,0.7), rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+  width:100%;
+  height:100px;
+  border-radius: 40px 40px 0px 0px;
+  padding-top: 15px;
+  margin: 0 auto;
+}
+
+footer table{
+  table-layout: fixed;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+footer table th{
+  font-size: large;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+.icono_texto{
+  display: flex;
+  text-align: left;
+  margin: 0 auto;
+  justify-content: left;
+  margin-left: 40%;
+}
+.icono_texto:not(:last-child){
+  margin-bottom: 10px;
+}
+.icono_texto div{
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.icono_texto p{
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+.icono_texto a{
+  color: black;
+}
+.img_cont img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
 .div_pantalla{
   position: relative;
+  grid-area: main;
   width: 1500px;
   height: 750px;
   display: flex;
-  margin: 0 auto;
+  margin: 50px auto 25px auto;
   background-image:radial-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.5));
-  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
   pad: 10px;
 }
 

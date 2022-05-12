@@ -9,7 +9,11 @@
     </head>
     <body id="botPro">        
         <a href="index.html" class="bt_back">
-            <button><img src="images/001.gif" alt="miss img"></button>
+            <button>
+                <img src="images/001.gif" alt="miss img">
+                <p class="textoBT_top">Volver</p>
+            </button>
+            
         </a>  
 
         <div id="main">
@@ -32,7 +36,7 @@
                     <br><br>
                 </p>
                 <div class="containerVid">
-                    <video controls>
+                    <video class="im_grande" id="vidCombate" controls>
                         <source src="images/pokemon/combate1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                     </video>
@@ -42,16 +46,23 @@
                         <br>
                         <br>
                         Las especies de Pokémon más fuertes aparecen con menos frecuencia, representando el 0.1% de los encuentros en algunos casos.
+                        <br><br>
+                        Además de la especie o especies de Pokémon a capturar, es posible configurar la habilidad que deben tener.
                     </p>
                 </div>
 
                 <h3>Pokémon salvajes</h3>
-                <p>
-                    Los Pokémon cuentan con numerosos atributos que diferencian a los individuous de la misma especie. Estos atributos hacen que sean mejores
-                    o peores para según que rol dentro del equipo. Los atributos de los Pokémon salvajes se deciden al azar cuando estos aparecen, aunque no
-                    se pueden conocer hasta que son capturados. La habilidad de un Pokémon salvaje es el único atributo que sí se puede conocer antes de que
-                    sea capturado.
-                </p>   
+                <p>Los Pokémon cuentan con numerosos atributos que diferencian a los individuous de la misma especie. Estos atributos hacen que sean mejores
+                    o peores para según que rol dentro del equipo.</p>
+                <div class="containerVid">
+                    <p>
+                        Los atributos de los Pokémon salvajes se deciden al azar cuando estos aparecen, aunque no
+                        se pueden conocer hasta que son capturados. La habilidad de un Pokémon salvaje es el único atributo que sí se puede conocer antes de que
+                        sea capturado.
+                    </p>   
+                    <img class="im_grande" src="images/pokemon/stats.png" alt="stats">
+
+                </div>
                 <br>                
                 <p>
                     
@@ -61,9 +72,12 @@
             <div class="bloqueTexto">
                 <h1>Funcionamiento</h1>
                 <p>
-                    En líneas generales, el bot introduce entradas de teclado en el juego como si de una persona se tratase.
-                    El jugador debe estar colocado en una zona donde aparezcan Pokémon salvajes.
+                    En líneas generales, el bot introduce entradas de teclado en el juego como si de una persona se tratase, en función de la 
+                    información que aparece en pantalla en cada momento. Las diferentes subrutinas
+                    por las que el bot ejecuta acciones pueden entenderse como una máquina de estados finitos. Los estados
+                    se sincronizan usando tecnología multihilo.
                     <br><br>
+                    El jugador debe estar colocado en una zona donde aparezcan Pokémon salvajes. 
                     El bot moverá el personaje hasta que tenga lugar un encuentro. Cuando sucede, se detecta que una batalla ha comenzado. Mediante OCR
                     (Optical Character Recognition), la especie de Pokémon salvaje es identificada. Si se ha especificado capturar esa especie, se inicia
                     la rutina de captura; si no, el bot finaliza el encuentro huyendo. En cualquier caso, se vuelve a andar hasta encontrar otro Pokémon
@@ -71,20 +85,71 @@
                     <br><br>
                 </p>
                 <div class="containerVid">
-                    <img src="images/pokemon/gui.png" alt="gui">
+                    <img class="im_grande" id="gui" src="images/pokemon/gui.png" alt="gui">
                     <p>
-                        Cuando un Pokémon aparece, comienza una batalla.
-                        La batalla concluye cuando el jugador huye o el Pokémon enemigo es derrotado o capturado.
+                        A través de esta interfaz gráfica pueden configurarse todos los parámetros como la dirección y amplitud de desplazamiento.
+                        A través de los botones <img class="btmasmenos" src="images/pokemon/mas.png" alt="aa"> y <img src="images/pokemon/menos.png" alt="aa">
+                        se pueden añadir o eliminar Pokémon que el bot reconocerá y capturará en el juego.
                         <br>
                         <br>
-                        Las especies de Pokémon más fuertes aparecen con menos frecuencia, representando el 0.1% de los encuentros en algunos casos.
+                        La lista de Pokémon y sus habilidades se obtienen de una base de datos local SQlite, creada mediante Web Scrapping desde 
+                        <a href="https://pokemondb.net/pokedex/all" style="text-decoration: underline; color:blue;">aquí</a>.
+                        <br><br>
+                        En la parte inferior de la interfaz se dispone de un contador, que registra los encuentros con Pokémon salvajes que han tenido
+                        lugar una sesión
+                        concreta.
                     </p>
                 </div>
             </div>
 
+            <div class="bloqueTexto" id="contexto">
+                <h1>Funcionalidades adicionales</h1>
+                <h3>Pokédex</h3>
+                    <p>Con la base de datos local, se ha recreado la Pokédex.</p>
+                    <br>
+                <div class="containerVid">
+                    <video class="im_grande" id="vidPokedex" controls>
+                        <source src="images/pokemon/pokedex.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                    <p>
+                        A través del menú desplegable se puede seleccionar un Pokémon.
+                        lo que generará una consulta SQL a la base de datos y mostrará las estadísticas base del Pokémon en pantalla,
+                        junto con su imagen animada.
+                    </p>
+                </div>
+
+                <h3>Bot de Telegram</h3>
+                <p>Paralelamente al bot del juego, se ha creado un bot para Telegram que permite realizar un seguimiento de las capturas.</p>
+                <br>
+                <div class="containerVid">
+                    <p>
+                      Cuando se captura un Pokémon, el juego proporciona una vista previa en la que se muestran los atributos del
+                      Pokémon recién capturado.
+                    </p>
+
+                    <div class="im_grande" id="prev" >
+                        <img  src="images/pokemon/prev.jpg" alt="">
+                    </div>
+
+                </div>
+                <br>
+                
+                <p>
+                    El bot busca la vista previa en la pantalla, la recorta y la
+                    envía al móvil del jugador por Telegram.
+                </p>
+                <br>
+                <div class="containerVid">
+                    <img class="im_grande" id="tele_bot_img" src="images/pokemon/telegram.jpg" alt="">
+                </div>
+                <p>
+                    
+                </p>
+            </div>
 
         </div>
-        <footer class="chikito">
+        <footer>
             <table>
                 <tr>
                     <th>Jose Barros Ribademar</th>
