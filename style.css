@@ -337,7 +337,14 @@ body{
 }
 #parrafo{
   text-align: justify;
-  padding: 5rem;
+  padding: 5rem 5rem 0 5rem;
+}
+#texto_CV{
+  padding: 4rem 0;
+}
+#texto_CV a{
+  text-decoration: underline;
+  color: blue;
 }
 
 /************* FORMACION *************/
