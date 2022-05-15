@@ -341,7 +341,6 @@ body{
 }
 #texto_CV{
   padding: 4rem 0;
-  border: 2px red dotted;
 }
 #texto_CV a{
   text-decoration: underline;
