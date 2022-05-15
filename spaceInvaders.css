@@ -43,15 +43,21 @@ body{
   background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0.5) 100%);
   border-radius: 10px;
   width: 150px;
-  height: 100px;
+  height: 125px;
   
 }
 .bt_back{
   width: fit-content;
   height: fit-content;
-  padding: 25px;
+    padding-top: 5px;
+  padding-bottom: 5px;
   margin: 0 auto;
   grid-area: header;
+  display: flex;
+  flex-direction: column;
+}
+.im_btback{
+  max-height: 55%;
 }
 
 footer{

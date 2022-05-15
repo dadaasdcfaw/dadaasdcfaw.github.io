@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 arrayFotos = document.getElementsByClassName("foto")
 arrayMarcas = document.getElementsByClassName("square")
-arrayTextos = ["Viaje a Roma", "foto 2", "foto 3"]
+arrayTextos = ["Viaje a Roma", "Pipo y yo", "Mi mejor curry"]
 var i_slider = 0
 var i_trans= 0
 
